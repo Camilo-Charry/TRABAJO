@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuckyShopper - Tienda de Moda</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">LuckyShopper</a>
+            
+            <!-- Menú para móvil -->
+            <div class="mobile-menu-btn">
+                <i class="fas fa-bars" id="menu-icon"></i>
+            </div>
+            
+            <!-- Menú para escritorio -->
+            <nav class="desktop-menu">
+                <a href="categoria.html?cat=ropa" class="nav-link">Ropa</a>
+                <a href="categoria.html?cat=gorras" class="nav-link">Gorras</a>
+                <a href="categoria.html?cat=zapatos" class="nav-link">Zapatos</a>
+                <a href="categoria.html?cat=accesorios" class="nav-link">Accesorios</a>
+            </nav>
+            
+            <a href="carrito.html" class="cart-icon">
+                <i class="fas fa-shopping-bag"></i>
+            </a>
+        </div>
+        
+        <!-- Menú móvil desplegable -->
+        <div class="mobile-menu" id="mobile-menu">
+            <nav>
+                <a href="categoria.html?cat=ropa" class="nav-link">Ropa</a>
+                <a href="categoria.html?cat=gorras" class="nav-link">Gorras</a>
+                <a href="categoria.html?cat=zapatos" class="nav-link">Zapatos</a>
+                <a href="categoria.html?cat=accesorios" class="nav-link">Accesorios</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Banner principal -->
+        <section class="hero">
+            <div class="container">
+                <h1>Nueva Colección 2025</h1>
+                <p>Descubre las últimas tendencias en moda y accesorios</p>
+                <a href="productos.html" class="btn btn-primary">Ver Productos</a>
+            </div>
+        </section>
+
+        <!-- Productos destacados -->
+        <section class="featured-products">
+            <div class="container">
+                <h2>Productos Destacados</h2>
+                <div class="products-grid" id="featured-products">
+                    <!-- Los productos se cargarán dinámicamente con JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Categorías -->
+        <section class="categories">
+            <div class="container">
+                <h2>Explora Nuestras Categorías</h2>
+                <div class="categories-grid">
+                    <a href="categoria.html?cat=ropa" class="category-card">
+                        <div class="category-image">
+                            <img src="https://via.placeholder.com/400" alt="Ropa">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="category-content">
+                            <h3>Ropa</h3>
+                            <p>Las últimas tendencias para todas las ocasiones</p>
+                            <span class="btn-outline">Ver Colección</span>
+                        </div>
+                    </a>
+
+                    <a href="categoria.html?cat=gorras" class="category-card">
+                        <div class="category-image">
+                            <img src="https://via.placeholder.com/400" alt="Gorras">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="category-content">
+                            <h3>Gorras</h3>
+                            <p>Complementa tu estilo con nuestra colección</p>
+                            <span class="btn-outline">Ver Colección</span>
+                        </div>
+                    </a>
+
+                    <a href="categoria.html?cat=zapatos" class="category-card">
+                        <div class="category-image">
+                            <img src="https://via.placeholder.com/400" alt="Zapatos">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="category-content">
+                            <h3>Zapatos</h3>
+                            <p>Calzado para cada momento y estilo</p>
+                            <span class="btn-outline">Ver Colección</span>
+                        </div>
+                    </a>
+
+                    <a href="categoria.html?cat=accesorios" class="category-card">
+                        <div class="category-image">
+                            <img src="https://via.placeholder.com/400" alt="Accesorios">
+                            <div class="overlay"></div>
+                        </div>
+                        <div class="category-content">
+                            <h3>Accesorios</h3>
+                            <p>Detalles que marcan la diferencia</p>
+                            <span class="btn-outline">Ver Colección</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Suscripción -->
+        <section class="newsletter">
+            <div class="container">
+                <h2>Únete a nuestra comunidad</h2>
+                <p>Recibe las últimas novedades y ofertas exclusivas</p>
+                
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Tu correo electrónico" required>
+                    <button type="submit" class="btn btn-primary">Suscribirse</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>LuckyShopper</h3>
+                    <p>Tu tienda de moda favorita con las últimas tendencias en ropa, gorras, zapatos y accesorios.</p>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Categorías</h4>
+                    <ul>
+                        <li><a href="categoria.html?cat=ropa">Ropa</a></li>
+                        <li><a href="categoria.html?cat=gorras">Gorras</a></li>
+                        <li><a href="categoria.html?cat=zapatos">Zapatos</a></li>
+                        <li><a href="categoria.html?cat=accesorios">Accesorios</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Información</h4>
+                    <ul>
+                        <li><a href="nosotros.html">Sobre nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
+                        <li><a href="politica-privacidad.html">Política de privacidad</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Síguenos</h4>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> Lucky Shopper. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botón de WhatsApp -->
+    <a href="#" class="whatsapp-btn" id="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="../js/productos.js"></script>
+    <script src="../js/main.js"></script>
+</body>
+</html>
