@@ -869,3 +869,208 @@ footer {
     grid-template-columns: repeat(4, 1fr);
   }
 }
+:root {
+  --color-verde: #009E60;
+  --color-amarillo: #FFD700;
+  --color-negro: #000000;
+  --color-blanco: #ffffff;
+  --color-gris: #666;
+  --color-fondo: #f8f8f8;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--color-negro);
+  background-color: var(--color-blanco);
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--color-verde);
+  color: var(--color-blanco);
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #007a4d;
+}
+
+.btn-outline {
+  border: 2px solid var(--color-verde);
+  color: var(--color-verde);
+  background-color: transparent;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-verde);
+  color: var(--color-blanco);
+}
+
+/* Tarjetas de producto */
+.product-card {
+  background-color: var(--color-blanco);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+}
+/* Responsive Design */
+
+/* Tablets y pantallas medianas (≥ 600px) */
+@media (min-width: 600px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .newsletter-form {
+    flex-direction: row;
+  }
+
+  .newsletter-form input {
+    flex: 1;
+  }
+}
+
+/* Escritorios y pantallas grandes (≥ 992px) */
+@media (min-width: 992px) {
+  .desktop-menu {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .mobile-menu-btn {
+    display: none;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .categories-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .product-detail {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+/* Fondo con tréboles verdes */
+body {
+  background-image: url('../img/trebol.png'); /* Asegúrate de tener la imagen en esta ruta */
+  background-repeat: repeat;
+  background-size: 80px;
+  background-color: #e6ffe6; /* Verde claro de fondo */
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos del encabezado */
+header {
+  background-color: #4CAF50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+}
+
+/* Contenedor principal */
+.container {
+  padding: 20px;
+}
+
+/* Estilos de productos en la grilla */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.producto {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: white;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.producto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.producto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.producto h3 {
+  margin-top: 10px;
+  font-size: 1.1em;
+}
+
+.producto p {
+  color: #555;
+  font-weight: bold;
+}
+
+/* Botón */
+.boton {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.boton:hover {
+  background-color: #45a049;
+}
+
+/* Carrito */
+.carrito {
+  float: right;
+  margin-right: 20px;
+}
+
+/* Pie de página */
+footer {
+  background-color: #4CAF50;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  margin-top: 40px;
+}

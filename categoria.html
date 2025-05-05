@@ -1,130 +1,286 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categoría - Lucky Shopper</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Font Awesome para iconos -->
-    <link rel="icon" href="img/logo/logoluck.jpeg" type="image/png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Categoría - Lucky Shopper</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" href="img/logo/logoluck.jpeg" type="image/png">
+  <style>
+    
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+    }
+    header, footer {
+      background-color: #222;
+      color: white;
+      padding: 1rem 0;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .logo {
+      font-size: 1.5rem;
+      color: white;
+      text-decoration: none;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 2rem;
+      text-transform: capitalize;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+    .product-card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+      transition: transform 0.2s ease;
+    }
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+    .product-card img {
+      max-width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .product-card h3 {
+      margin: 0.5rem 0;
+      font-size: 1.1rem;
+    }
+    .product-card p {
+      color: #444;
+      font-weight: bold;
+      margin: 0.5rem 0 1rem;
+    }
+    .btn {
+      background-color: #0c9;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #0aa;
+    }
+  </style>
 </head>
 <body>
-    <!-- Barra de navegación -->
-    <header class="navbar">
-        <div class="container">
-            <a href="index.html" class="logo">Lucky Shopper</a>
-            
-            <!-- Menú para móvil -->
-            <div class="mobile-menu-btn">
-                <i class="fas fa-bars" id="menu-icon"></i>
-            </div>
-            
-            <!-- Menú para escritorio -->
-            <nav class="desktop-menu" id="category-nav">
-                <a href="categoria.html?cat=ropa" class="nav-link">Ropa</a>
-                <a href="categoria.html?cat=gorras" class="nav-link">Gorras</a>
-                <a href="categoria.html?cat=zapatos" class="nav-link">Zapatos</a>
-                <a href="categoria.html?cat=accesorios" class="nav-link">Accesorios</a>
-            </nav>
-            
-            <a href="carrito.html" class="cart-icon">
-                <i class="fas fa-shopping-bag"></i>
-            </a>
-        </div>
-        
-        <!-- Menú móvil desplegable -->
-        <div class="mobile-menu" id="mobile-menu">
-            <nav>
-                <a href="categoria.html?cat=ropa" class="nav-link">Ropa</a>
-                <a href="categoria.html?cat=gorras" class="nav-link">Gorras</a>
-                <a href="categoria.html?cat=zapatos" class="nav-link">Zapatos</a>
-                <a href="categoria.html?cat=accesorios" class="nav-link">Accesorios</a>
-            </nav>
-        </div>
-    </header>
+  <!-- Flecha circular de retroceso con colores personalizados -->
+<a href="index.html" class="back-arrow">&#8592;</a>
 
-    <main>
-        <!-- Cabecera de categoría -->
-        <section class="category-header">
-            <div class="container">
-                <h1 id="category-title">Categoría</h1>
-                <p id="category-description">Descripción de la categoría</p>
-            </div>
-        </section>
+<style>
+  .back-arrow {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #e0ddd0; /* Amarillo oro */
+    color: #28a745; /* Verde */
+    font-size: 24px;
+    text-align: center;
+    line-height: 45px;
+    text-decoration: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, transform 0.2s;
+    z-index: 1000;
+  }
 
-        <!-- Productos - Estantería -->
-        <section class="category-products">
-            <div class="container">
-                <div class="shelf">
-                    <h2>Nuestra Colección</h2>
-                    <div class="products-grid" id="category-products">
-                        <!-- Los productos se cargarán dinámicamente con JavaScript -->
-                    </div>
-                </div>
+  .back-arrow:hover {
+    background-color: #ffc107; /* Amarillo más suave al pasar el mouse */
+    transform: scale(1.05);
+  }
 
-                <!-- Filtros -->
-                <div class="filters">
-                    <button class="filter-btn active">Todos</button>
-                    <button class="filter-btn">Nuevos</button>
-                    <button class="filter-btn">Populares</button>
-                    <button class="filter-btn">Ofertas</button>
-                </div>
-            </div>
-        </section>
-    </main>
+  @media (max-width: 576px) {
+    .back-arrow {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+      line-height: 40px;
+      top: 15px;
+      left: 15px;
+    }
+  }
+</style>
 
-    <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Lucky Shopper</h3>
-                    <p>Tu tienda de moda favorita con las últimas tendencias en ropa, gorras, zapatos y accesorios.</p>
-                </div>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Lucky Shopper</a>
+    </div>
+  </header>
 
-                <div class="footer-col">
-                    <h4>Categorías</h4>
-                    <ul>
-                        <li><a href="categoria.html?cat=ropa">Ropa</a></li>
-                        <li><a href="categoria.html?cat=gorras">Gorras</a></li>
-                        <li><a href="categoria.html?cat=zapatos">Zapatos</a></li>
-                        <li><a href="categoria.html?cat=accesorios">Accesorios</a></li>
-                    </ul>
-                </div>
+  <main>
+    <div class="container">
+      <h1 id="categoria-titulo">Categoría</h1>
+      <div class="products-grid" id="product-list">
+        <!-- Productos se cargan aquí -->
+      </div>
+    </div>
+  </main>
 
-                <div class="footer-col">
-                    <h4>Información</h4>
-                    <ul>
-                        <li><a href="nosotros.html">Sobre nosotros</a></li>
-                        <li><a href="contacto.html">Contacto</a></li>
-                        <li><a href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-                        <li><a href="politica-privacidad.html">Política de privacidad</a></li>
-                    </ul>
-                </div>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Lucky Shopper. Todos los derechos reservados.</p>
+    </div>
+  </footer>
 
-                <div class="footer-col">
-                    <h4>Síguenos</h4>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                    </div>
-                </div>
-            </div>
+  <script>
+    const productosPorCategoria = {
+      ropa: [
+      { nombre: "Conjuntos Texturizados Balenciaga 1.1", precio: "$145.000", imagen: "img/ropa/1.jpeg" },
+{ nombre: "Conjuntos Texturizados Balenciaga 1.1", precio: "$145.000", imagen: "img/ropa/2.jpeg" },
+{ nombre: "Conjuntos Texturizados Balenciaga 1.1", precio: "$145.000", imagen: "img/ropa/3.jpeg" },
+{ nombre: "Conjuntos Texturizados Dior 1.1", precio: "$145.000", imagen: "img/ropa/4.jpeg" },
+{ nombre: "Conjuntos Texturizados Dior 1.1", precio: "$145.000", imagen: "img/ropa/5.jpeg" },
+{ nombre: "Conjuntos Texturizados Dior 1.1", precio: "$145.000", imagen: "img/ropa/6.jpeg" },
+{ nombre: "Conjuntos Texturizados Amiri 1.1", precio: "$145.000", imagen: "img/ropa/7.jpeg" },
+{ nombre: "Conjuntos Texturizados Amiri 1.1", precio: "$145.000", imagen: "img/ropa/8.jpeg" },
+{ nombre: "Conjuntos Texturizados Amiri 1.1", precio: "$145.000", imagen: "img/ropa/9.jpeg" },
+{ nombre: "Camisetas Oversize Amiri 1.1", precio: "$145.000", imagen: "img/ropa/10.jpeg" },
+{ nombre: "Chaqueta GAMA ALTA CALIDAD 1.1", precio: "$125.000", imagen: "img/ropa/11.jpeg" },
+{ nombre: "Chaqueta GAMA ALTA CALIDAD 1.1", precio: "$125.000", imagen: "img/ropa/12.jpeg" },
+{ nombre: "Chaqueta GAMA ALTA CALIDAD 1.1", precio: "$125.000", imagen: "img/ropa/13.jpeg" },
+{ nombre: "Chaqueta GAMA ALTA CALIDAD 1.1", precio: "$125.000", imagen: "img/ropa/14.jpeg" },
+{ nombre: "Busos Oversize", precio: "$85.000", imagen: "img/ropa/15.jpeg" },
+{ nombre: "Busos Oversize", precio: "$85.000", imagen: "img/ropa/16.jpeg" },
+{ nombre: "Busos Oversize", precio: "$85.000", imagen: "img/ropa/17.jpeg" },
+{ nombre: "Busos Oversize", precio: "$85.000", imagen: "img/ropa/18.jpeg" },
+{ nombre: "Busos Oversize", precio: "$85.000", imagen: "img/ropa/19.jpeg" },
+{ nombre: "Busos Oversize", precio: "$85.000", imagen: "img/ropa/20.jpeg" },
+{ nombre: "Busos Oversize", precio: "$85.000", imagen: "img/ropa/21.jpeg" },
+{ nombre: "Busos Oversize", precio: "$85.000", imagen: "img/ropa/22.jpeg" },
+{ nombre: "Busos Oversize", precio: "$85.000", imagen: "img/ropa/23.jpeg" },
+{ nombre: "CAMISETA PRELAVADA CALIDAD PREMIUM", precio: "$80.000", imagen: "img/ropa/24.jpeg" },
+{ nombre: "CAMISETA PRELAVADA CALIDAD PREMIUM", precio: "$80.000", imagen: "img/ropa/25.jpeg" },
+{ nombre: "CAMISETA PRELAVADA CALIDAD PREMIUM", precio: "$80.000", imagen: "img/ropa/26.jpeg" },
+{ nombre: "CAMISETA PRELAVADA CALIDAD PREMIUM", precio: "$80.000", imagen: "img/ropa/27.jpeg" },
+{ nombre: "CAMISETA PRELAVADA CALIDAD PREMIUM", precio: "$80.000", imagen: "img/ropa/28.jpeg" },
+{ nombre: "CAMISETA PRELAVADA CALIDAD PREMIUM", precio: "$80.000", imagen: "img/ropa/29.jpeg" },
+{ nombre: "CAMISETA PRELAVADA CALIDAD PREMIUM", precio: "$80.000", imagen: "img/ropa/30.jpeg" },
+{ nombre: "CAMISETA PRELAVADA CALIDAD PREMIUM", precio: "$80.000", imagen: "img/ropa/31.jpeg" },
+      { nombre: "JEANS AMIRI CALIDAD 1.1", precio: "$150.000", imagen: "img/ropa/32.jpeg" },
+    { nombre: "JEANS AMIRI CALIDAD 1.1", precio: "$150.000", imagen: "img/ropa/33.jpeg" },
+    { nombre: "JEANS AMIRI CALIDAD 1.1", precio: "$150.000", imagen: "img/ropa/34.jpeg" },
+    { nombre: "JEANS AMIRI CALIDAD 1.1", precio: "$150.000", imagen: "img/ropa/35.jpeg" },
+    { nombre: "JEANS AMIRI CALIDAD 1.1", precio: "$150.000", imagen: "img/ropa/36.jpeg" },
+    { nombre: "JEANS AMIRI CALIDAD 1.1", precio: "$150.000", imagen: "img/ropa/37.jpeg" },
+    { nombre: "JEANS AMIRI CALIDAD 1.1", precio: "$150.000", imagen: "img/ropa/38.jpeg" },
+    { nombre: "JEANS AMIRI CALIDAD 1.1", precio: "$150.000", imagen: "img/ropa/39.jpeg" }
+      ],
+      gorras: [
+        { nombre: "Gorra Modelo Exclusivo Galleras", precio: "$45.000", imagen: "img/gorra/1.jpeg" },
+        { nombre: "Gorra Colombiana Private Pilot", precio: "$45.000", imagen: "img/gorra/2.jpeg" },
+        { nombre: "Gorra 9FIFTY CHICAGO WHITE SOX RED", precio: "$50.000", imagen: "img/gorra/3.jpeg" },
+        { nombre: "Gorra Boston Red Sox St. Patrick's Day 9TWENTY New Era", precio: "$50.000", imagen: "img/gorra/4.jpeg" },
+        { nombre: "Gorra Ángeles de Anaheim", precio: "$50.000", imagen: "img/gorra/5.jpeg" },
+        { nombre: "Gorra Coach Plana", precio: "$45.000", imagen: "img/gorra/6.jpeg" },
+        { nombre: "Gorra De Béisbol vintage unisex De Coach", precio: "$45.000", imagen: "img/gorra/7.jpeg" },
+        { nombre: "Gorra De Béisbol De Jacquard De Firma", precio: "$45.000", imagen: "img/gorra/8.jpeg" },
+        { nombre: "Gorra Blanca Damon", precio: "$55.000", imagen: "img/gorra/9.jpeg" },
+        { nombre: "Gorra CAP HUGO BOSS", precio: "$55.000", imagen: "img/gorra/10.jpeg" },
+        { nombre: "Gorra HUGO BOSS pro shops", precio: "$55.000", imagen: "img/gorra/11.jpeg" },
+        { nombre: "Gorra Clemont Francesco", precio: "$55.000", imagen: "img/gorra/12.jpeg" },
+        { nombre: "Gorra CLEMONT LERCI", precio: "$55.000", imagen: "img/gorra/13.jpeg" },
+        { nombre: "Gorra CLEMONT LERCI Roja", precio: "$55.000", imagen: "img/gorra/14.jpeg" },
+        { nombre: "Gorra BRILLO CT ", precio: "$50.000", imagen: "img/gorra/15.jpeg" }
+      ],
+      zapatos: [
+        { nombre: "Jordan Retro 4 Military black", precio: "$139.000", imagen: "img/zapatos/1.jpeg" },
+        { nombre: "Puma Suede XL", precio: "$170.000", imagen: "img/zapatos/2.jpeg" },
+        { nombre: "Air Jordan 11 Retro Legend Blue", preco: "$165.000", imagen: "img/zapatos/3.jpeg" },
+        { nombre: "Air Force one Beige army green gum", precio: "$155.000", imagen: "img/zapatos/4.jpeg" },
+        { nombre: "Air Force 1 ", precio: "$139.000", imagen: "img/zapatos/5.jpeg" },
+        { nombre: "LE COQ SPORTIF AZUL ROJO", precio: "$170.000", imagen: "img/zapatos/6.jpeg" },
+        { nombre: "Nike SB Dunk Low Pro Black Gum ", precio: "$165.000", imagen: "img/zapatos/7.jpeg" },
+        { nombre: "adidas Tenis Humanrace Superstar 92 ", precio: "$145.000", imagen: "img/zapatos/8.jpeg" },
+        { nombre: "Nike Air Max TN x Lacoste", precio: "$145.000", imagen: "img/zapatos/9.jpeg" },
+        { nombre: "Nike Air Max 90", precio: "$139.000", imagen: "img/zapatos/10.jpeg" },
+        { nombre: "Nike NOCTA Glide Drake ", precio: "$145.000", imagen: "img/zapatos/11.jpeg" },
+        { nombre: "Nike Shox 'White'", precio: "$170.000", imagen: "img/zapatos/12.jpeg" }
+      ],
+      accesorios: [
+      { nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/1.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/2.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/3.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/4.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/5.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/6.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/7.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/8.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/9.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/10.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/11.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/12.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/13.jpeg" },
+{ nombre: "Correa en Cuero", precio: "$60.000", imagen: "img/accesorios/14.jpeg" },
 
-            <div class="footer-bottom">
-                <p>&copy; <span id="current-year"></span> Lucky Shopper. Todos los derechos reservados.</p>
-            </div>
-        </div>
-    </footer>
+{ nombre: "Carrieles", precio: "$80.000", imagen: "img/accesorios/15.jpeg" },
+{ nombre: "Carrieles", precio: "$80.000", imagen: "img/accesorios/16.jpeg" },
+{ nombre: "Carrieles", precio: "$80.000", imagen: "img/accesorios/17.jpeg" },
+{ nombre: "Carrieles", precio: "$80.000", imagen: "img/accesorios/18.jpeg" },
+{ nombre: "Carrieles", precio: "$80.000", imagen: "img/accesorios/19.jpeg" },
 
-    <!-- Botón de WhatsApp -->
-    <a href="#" class="whatsapp-btn" id="whatsapp-btn">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+{ nombre: "Canguros", precio: "$70.000", imagen: "img/accesorios/20.jpeg" },
+{ nombre: "Canguros", precio: "$70.000", imagen: "img/accesorios/21.jpeg" },
+{ nombre: "Canguros", precio: "$70.000", imagen: "img/accesorios/22.jpeg" },
+{ nombre: "Canguros", precio: "$70.000", imagen: "img/accesorios/23.jpeg" },
+{ nombre: "Canguros", precio: "$70.000", imagen: "img/accesorios/24.jpeg" },
 
-    <script src="js/productos.js"></script>
-    <script src="js/categoria.js"></script>
-    <script src="js/main.js"></script>
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/25.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/26.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/27.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/28.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/29.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/30.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/31.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/32.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/33.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/34.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/35.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/36.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/37.jpeg" },
+{ nombre: "CARRIELES BANDOLEROS", precio: "$75.000", imagen: "img/accesorios/38.jpeg" }
+
+      ]
+    };
+
+    const params = new URLSearchParams(window.location.search);
+    const categoria = params.get('cat');
+    const titulo = document.getElementById('categoria-titulo');
+    const contenedor = document.getElementById('product-list');
+
+    if (categoria && productosPorCategoria[categoria]) {
+      titulo.textContent = categoria;
+      productosPorCategoria[categoria].forEach(p => {
+        const card = document.createElement('div');
+        card.classList.add('product-card');
+        card.innerHTML = `
+          <img src="${p.imagen}" alt="${p.nombre}">
+          <h3>${p.nombre}</h3>
+          <p>${p.precio}</p>
+          <button class="btn">Ver más</button>
+        `;
+        contenedor.appendChild(card);
+      });
+    } else {
+      titulo.textContent = "Categoría no encontrada";
+      contenedor.innerHTML = "<p>No se encontraron productos para esta categoría.</p>";
+    }
+  </script>
 </body>
 </html>
